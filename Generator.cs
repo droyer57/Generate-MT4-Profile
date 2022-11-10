@@ -68,7 +68,7 @@ public sealed class Generator
 
         sw.WriteLine(file.GetInputs());
         sw.WriteLine($"EA_Magic_Number={DateTime.Now:yyMMdd}{index}");
-        sw.WriteLine($"EA_Comment={Path.GetFileNameWithoutExtension(path)}");
+        sw.WriteLine($"EA_Comment={file.RobotName} - {file.PeriodName}");
 
         sw.WriteLine("</inputs>");
         sw.WriteLine("</expert>");

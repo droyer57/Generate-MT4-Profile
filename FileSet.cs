@@ -11,6 +11,7 @@ public sealed class FileSet
     public string RobotName { get; }
     public string Symbol { get; }
     public int Period { get; }
+    public string PeriodName { get; }
 
     public FileSet(string path)
     {
@@ -26,7 +27,8 @@ public sealed class FileSet
 
         RobotName = data[0];
         Symbol = data[1];
-        Period = GetPeriod(data[2]);
+        PeriodName = data[2];
+        Period = GetPeriod(PeriodName);
     }
 
     private static int GetPeriod(string period)
