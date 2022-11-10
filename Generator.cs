@@ -9,6 +9,7 @@ public sealed class Generator
     private const string ProfilesFolder = "Profiles";
 
     private string _profilePath = null!;
+    private string? _symbolSuffix;
 
     public void Start()
     {
@@ -21,6 +22,9 @@ public sealed class Generator
         {
             profileName = Guid.NewGuid().ToString("N");
         }
+
+        Console.Write("Suffixe du symbole: ");
+        _symbolSuffix = Console.ReadLine();
 
         _profilePath = $"{ProfilesFolder}/{profileName}";
 
@@ -54,7 +58,7 @@ public sealed class Generator
         sw.WriteLine("<chart>");
 
         sw.WriteLine($"id={index}");
-        sw.WriteLine($"symbol={file.Symbol}");
+        sw.WriteLine($"symbol={file.Symbol}{_symbolSuffix}");
         sw.WriteLine($"period={file.Period}");
         sw.WriteLine("grid=0");
         sw.WriteLine("window_type=3");
